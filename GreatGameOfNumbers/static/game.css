@@ -1,0 +1,43 @@
+
+
+#displaywin{
+	background-color: red;
+	width: 300px;
+	height: 245px;
+	margin-left: 560px;
+}
+#displaywin p{
+	text-align: center;
+	padding-top: 100px;
+	font-size: 40px;
+}
+#displaylose{
+
+}
+#main{
+}
+#main *{
+	text-align: center;
+}
+#reset{
+	vertical-align: top;
+	margin-left: 665px;
+}
+.mistake{
+	background-color: red;
+	width: 240px;
+	height: 175px;
+	margin-top: 50px;
+	margin-left: 570px;
+	text-align: center;
+	font size: 40px;
+}
+.win{
+	background-color: green;
+	width: 240px;
+	height: 175px;
+	margin-top: 50px;
+	margin-left: 570px;
+	text-align: center;
+	font size: 40px;
+}
