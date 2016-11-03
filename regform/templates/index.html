@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Advanced Validation Example</title>
+</head>
+<body>
+<h1>Please Register</h1>
+<!-- EMAIL -->
+  {% with messages = get_flashed_messages(category_filter=["nameError"]) %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <form action='/process' method='POST'>
+  First Name:<input type="text" name="first_name">
+  
+    
+<!-- FIRSTNAME -->
+  {% with messages = get_flashed_messages(category_filter=["emailError"])%}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  Email:<input type="text" name="email">
+        
+<!-- LASTNAME -->
+ {% with messages = get_flashed_messages(category_filter=["LnameError"]) %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  Last Name:<input type="text" name="last_name">
+
+<!-- PASSWORD -->
+  {% with messages = get_flashed_messages(category_filter=["passError"]) %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+    Password:<input type="text" name="password">
+    Confirm:<input type="text" name = "confirm">
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
