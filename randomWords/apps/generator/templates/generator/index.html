@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WordGenerator</title>
+</head>
+<body>
+<form action="/generate" method="POST">
+	{% csrf_token %}
+	<input type="submit" name="create" value="Make a Word!">
+</form>
+	<h1>Supp</h1>
+	<h2>{{request.session.word}}</h2>
+	<h2>You've guessed {{ request.session.count }} Number of times</h2>
+	<form action="/refresh" method="POST">
+		{% csrf_token %}
+	<input type="submit" name="refresh" value="Reset the 'game'">
+		
+	</form>
+</body>
+</html>
