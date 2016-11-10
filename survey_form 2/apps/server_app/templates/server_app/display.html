@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Display Page</title>
+</head>
+<body>
+<h2>You have submitted this form {{request.session.count}} times. Really nice work. Super great.</h2>
+	<h1><b>Submitted Information</b></h1>
+	<p> Name :  {{request.session.name}} </p>
+	<p> Your Location :  {{request.session.location}} </p>
+	<p> Favorite Language! :  {{request.session.favorite}} </p>
+<form action="/refresh" method="POST">
+
+		{% csrf_token %}
+	<input type="submit" name="refresh" value="Reset the game" />
+		
+	</form>
+</body>
+</html>
