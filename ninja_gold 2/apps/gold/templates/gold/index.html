@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ninja G0ld</title>
+	<style>
+		#stuffyadone h6{
+			display: inline-block;
+		}
+		.building{
+			display:  inline-block;
+			border: 1px solid black;
+			color: green;
+			padding: 10px;
+		}
+	</style>
+</head>
+	<body>
+			<h3>Your Gold :{{request.session.gold}} </h3>
+		<div class="building">
+			<h5>Farm (earns 10-20 g0lds)</h5>
+			<form action="/process_money" method="POST">
+			{% csrf_token %}
+				<input type="hidden" name="building" value="farm">
+				<input type="submit" value="find G0ld">
+			</form>
+		</div>
+		<div class ="building">
+			<h5>Cave (earns 5-10 g0lds)</h5>
+			<form action="/process_money" method="POST">
+			{% csrf_token %}
+				<input type="hidden" name="building" value="cave">
+				<input type="submit" value="find G0ld">
+			</form>
+		</div>
+		<div class ="building">
+			<h5>House (earns 2-5 g0lds)</h5>
+			<form action="/process_money" method="POST">
+			{% csrf_token %}
+				<input type="hidden" name="building" value="house">
+				<input type="submit" value="find G0ld">
+			</form>
+		</div>
+		<div class ="building">	
+			<h5>Casino (earns 0-50 g0lds)</h5>
+			<form action="/process_money" method="POST">
+			{% csrf_token %}
+				<input type="hidden" name="building" value="casino">
+				<input type="submit" value="find G0ld">
+			</form>
+		</div>
+
+
+
+
+			<div id="stuffyadone">
+			{% for stuff in request.session.activity %}
+				<h6> {{ stuff }}</h6>
+				
+			{% endfor %}
+			</div>
+
+
+	<a href="/reset"><button>reset</button></a>
+	</body>
+</html>
