@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.books{
+			border: 1px solid black;
+			display: inline-block;
+			padding: 10px;
+
+
+		}
+	</style>
+</head>
+<body>
+<button><a href="{% url 'books:display' %}">Add Book and Review</a></button>
+<button><a href="/logout">Logout</a></button>
+	<h1>Here's some awesome books!</h1>
+		<p> Hello, {{request.session.user.first_name}}!</p>
+
+		 {% for thing in books %}
+
+			<div class = 'books'>
+			<p>ID : {{thing.id}}
+			<p>Title : {{ thing.book_title }}</p>
+			<p>Author:	{{ thing.author }}</p>
+			<p>Rating:	{{ thing.rating }}</p>
+			<p>Review:	{{ thing.review }}</p>
+			<p>Publisher of Review : {{ thing.published}}</p>
+			</div>
+		{% endfor %}
+
+	</div>
+
+</body>
+</html>

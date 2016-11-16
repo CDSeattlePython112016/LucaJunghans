@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Books</title>
+</head>
+<body>
+<h1>Go ahead {{request.session.user.first_name}} Write a review!
+</h1>
+<button><a href="{% url 'books:home' %}">Check out the review board!</a></button>
+
+<button><a href="/logout">Logout</a></button>
+{% if messages %}
+			{% for message in messages %}
+				<p>{{message}}</p>
+			{% endfor %}
+		{% endif %}
+	<form action="{% url 'books:new_book' %}" method="POST">
+	{% csrf_token %}
+		<p>Title of book : </p><input type="text" name="title">
+		<p>Author : </p><input type="text" name= "author">
+		<p>Or, Select an existing Author : </p><select>
+		{% for author in books %}
+					<option value="{{author.author}}">{{author.author}}</option>
+				{% endfor %}
+		</select>
+		<p>Raiting : </p><select name="rating" id="rating">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<p>Review :</p> <input type="textfield" name = "review">
+		<input type="submit" value="Submit a Review!">
+		<input type="hidden" name = "published" value ="{{request.session.user.first_name}}" >
+		
+	</form>
+</body>
+</html>
