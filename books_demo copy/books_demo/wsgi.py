@@ -1,5 +1,5 @@
 """
-WSGI config for ninja_gold project.
+WSGI config for books_demo project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ninja_gold.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "books_demo.settings")
 
 application = get_wsgi_application()
